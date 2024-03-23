@@ -24,10 +24,13 @@ export const modelOptions: ModelOptions[] = [
   'gpt-4-32k',
   // 'gpt-3.5-turbo-0301',
   'gpt-4-0314',
+  'claude-3-opus-20240229',
+  'claude-3-sonnet-20240229',
+  'claude-3-haiku-20240307',
   // 'gpt-4-32k-0314',
 ];
 
-export const defaultModel = 'gpt-4-0314';
+export const defaultModel = 'claude-3-opus-20240229';
 
 export const modelMaxToken = {
   'gpt-3.5-turbo': 4096,
@@ -41,6 +44,9 @@ export const modelMaxToken = {
   'gpt-4-32k': 32768,
   'gpt-4-32k-0314': 32768,
   'gpt-4-32k-0613': 32768,
+  'claude-3-opus-20240229': 200_000,
+  'claude-3-sonnet-20240229': 200_000,
+  'claude-3-haiku-20240307': 200_000,
 };
 
 export const modelCost = {
@@ -71,6 +77,18 @@ export const modelCost = {
   'gpt-4-0314': {
     prompt: { price: 0.03, unit: 1000 },
     completion: { price: 0.06, unit: 1000 },
+  },
+  'claude-3-opus-20240229': {
+    prompt: { price: 15.0, unit: 1_000_000 },
+    completion: { price: 75.0, unit: 1_000_000 },
+  },
+  'claude-3-sonnet-20240229': {
+    prompt: { price: 3.0, unit: 1_000_000 },
+    completion: { price: 15.0, unit: 1_000_000 },
+  },
+  'claude-3-haiku-20240307': {
+    prompt: { price: 0.25, unit: 1_000_000 },
+    completion: { price: 1.25, unit: 1_000_000 },
   },
   'gpt-4-0613': {
     prompt: { price: 0.03, unit: 1000 },

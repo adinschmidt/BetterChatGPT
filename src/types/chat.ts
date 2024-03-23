@@ -49,7 +49,15 @@ export interface Folder {
   color?: string;
 }
 
-export type ModelOptions = 'gpt-4' | 'gpt-4-32k' | 'gpt-3.5-turbo' | 'gpt-3.5-turbo-16k' | 'gpt-4-0314';
+export type ModelOptions =
+  | 'gpt-4'
+  | 'gpt-4-32k'
+  | 'gpt-3.5-turbo'
+  | 'gpt-3.5-turbo-16k'
+  | 'gpt-4-0314'
+  | 'claude-3-opus-20240229'
+  | 'claude-3-sonnet-20240229'
+  | 'claude-3-haiku-20240307';
 // | 'gpt-3.5-turbo-0301';
 // | 'gpt-4-0314'
 // | 'gpt-4-32k-0314'

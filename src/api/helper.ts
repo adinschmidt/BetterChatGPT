@@ -4,21 +4,18 @@ export const parseEventSource = (
   data: string
 ): '[DONE]' | EventSourceData[] => {
   const result = data
-    .split('\n\n')
-    .filter(Boolean)
+    .split(/\n?data: /)
+    .slice(1)
     .map((chunk) => {
-      const jsonString = chunk
-        .split('\n')
-        .map((line) => line.replace(/^data: /, ''))
-        .join('');
-      if (jsonString === '[DONE]') return jsonString;
+      if (chunk.trim() === '[DONE]') return '[DONE]';
       try {
-        const json = JSON.parse(jsonString);
-        return json;
+        const parsedData = JSON.parse(chunk.trim());
+        return parsedData as EventSourceData;
       } catch {
-        return jsonString;
+        return null;
       }
-    });
+    })
+    .filter((item): item is EventSourceData | '[DONE]' => item !== null);
   return result;
 };
 
